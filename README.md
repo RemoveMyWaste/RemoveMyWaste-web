@@ -1,6 +1,6 @@
 # Overview
 
-This is a hostable database of hazardous materials and disposal centers.
+This is a hostable web version of RemoveMyWaste.
 
 # Find something wrong in the database or want to add a new center?
 
@@ -12,24 +12,20 @@ Otherwise, you can (anonymously!) submit corrections or updates [here](https://r
 
 Pull requests and forks welcome.
 
-## To create database
+# Hosting
 
-```sql
-CREATE DATABASE MaterialsDB
-USE MaterialsDB;
-CREATE USER 'group24'@'localhost' IDENTIFIED BY 'PASSWORD';
-GRANT ALL PRIVILEGES ON MaterialsDB.* to 'group24'@'localhost';
-```
+This version of the app depends on [this database](https://github.com/cs361-group24/database) submodule. Information on working with submodules can be found [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
-## To login to database
+## To clone the project and intialize database submodule
 
 ```sh
-mysql -u group24 -p MaterialsDB
+git clone --recurse-submodules https://github.com/cs361-group24/RemoveMyWaste-web/
 ```
 
-```sql
-source database.sql
-\q
+## To update the database submodule
+
+```sh
+git submodule update --remote DbConnector
 ```
 
 ## To run the node server
@@ -40,10 +36,12 @@ nano dbcon.js
 # add username and password info
 # add database name 
 
+# only if you want a portal for anonymous users to submit issues like
+# https://removemywaste.liambeckman.com/issues
 cp issue-auth-example.js issue-auth.js
 nano issue-auth.js
 # add OAUTH key
 
 npm install
-nodemon database.js PORT
+node database.js PORT
 ```
