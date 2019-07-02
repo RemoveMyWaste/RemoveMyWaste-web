@@ -51,14 +51,6 @@ a {
 }
 
 
-img {
-    //width: 50%;
-    //margin-left: auto;
-    //margin-right: auto;
-    //display: block;
-    //border: 1px dashed grey;
-}
-
 hr {
     margin: 2em;
     border-bottom: 1px dashed #99979c;
@@ -252,6 +244,7 @@ padding-left: 0.5em;
 
 img {
     width: 7%;
+    cursor: pointer;
 }
 
 .light {
