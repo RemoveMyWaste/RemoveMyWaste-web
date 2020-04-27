@@ -1,1 +1,0 @@
-database/mysql2sqlite.sh
